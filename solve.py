@@ -137,9 +137,6 @@ def solve(board, complete):
 
 
 def test_solve(board):
-    global move_list
-    new_board, move_list = get_moves(board)
-    board, _ = solve_fast(board, False)
     return board
 
 
