@@ -47,7 +47,7 @@ hard_board = [[0, 1, 8, 0, 0, 0, 0, 0, 2],
 
 # draw_board(test)
 
-solved, _ = solve(evil_board, False)
+solved, _ = solve(test_board, False)
 draw_board(solved)
 
 

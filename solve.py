@@ -14,6 +14,18 @@ def draw_board(board):
 
 
 def possible(board, pos, num):
+    """Function determines if a number is a possible move for a position on a board.
+
+    Parameters:
+    board (array): array that holds the board information
+    pos (tuple): position on the board (y, x)
+    num (int): number to be tested
+
+    Returns:
+    bool:Returning value
+
+
+    """
     # pos is (y, x)
     # check row
     y = pos[0]
@@ -81,12 +93,13 @@ def is_valid(board):
 
 
 def completed(board):
-    for line in board:
-        if 0 not in line:
-            continue
-        else:
-            return False
-    return True
+    if is_valid(board):
+        for line in board:
+            if 0 not in line:
+                continue
+            else:
+                return False
+        return True
 
 
 def back_track(board):
@@ -95,7 +108,7 @@ def back_track(board):
 
 
 def solve(board, complete):
-    if not complete:
+    if not completed(board):
         for i in list(range(0, 9)):
             for j in list(range(0, 9)):
                 number = board[i][j]
@@ -154,7 +167,7 @@ def solve_fast(board, complete):
                     return board, False
 
 
-def get_moves(board):
+def get_moves(board): 
     output = []
     for i in list(range(0, 9)):
         for j in list(range(0, 9)):
