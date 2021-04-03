@@ -100,6 +100,7 @@ def completed(board):
             else:
                 return False
         return True
+    return False
 
 
 def back_track(board):
@@ -107,39 +108,23 @@ def back_track(board):
     return solved_board
 
 
-def solve(board, complete):
-    if not completed(board):
-        for i in list(range(0, 9)):
-            for j in list(range(0, 9)):
-                number = board[i][j]
-                if number == 0:
-                    for num in list(range(1, 10)):
-                        if not complete:
-                            if possible(board, (i, j), num):
-                                board[i][j] = num
-                                # valid_board = is_valid(board)
-                                # if valid_board:
-                                if completed(board):
-                                    return board, True
-                                else:
-                                    board, complete = solve(board, complete)
-                        if complete:
-                            return board, True
-                    # if complete:
-                    #     return board, True
-                    if not complete:
+def solve(board):
+    for i in list(range(0, 9)):
+        for j in list(range(0,9)):
+            if board[i][j] == 0:
+                for testNum in list(range(1, 10)):
+                    # board[i][j] = testNum
+                    if possible(board, (i, j), testNum):
+                        board[i][j] = testNum
+                        board = solve(board)
+                        if completed(board):
+                            return board
+                    if testNum == 9:
                         board[i][j] = 0
-                        return board, False
-    if complete:
-        return board, True
-    else:
-        return board, False
-
-
-def test_solve(board):
+                        return board
     return board
 
-
+                            
 def solve_fast(board, complete):
     global move_list
     if not complete:
