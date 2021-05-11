@@ -15,6 +15,7 @@ def import_board():
 
 
 def get_board():
+    #this is a test
     board = []
     while len(board) != 9:
         line = input("Enter line " + str(len(board) + 1) + ": ")
