@@ -2,6 +2,7 @@ from operator import itemgetter
 
 
 def draw_board(board):
+    print("\n")
     for i, line in enumerate(board):
         for j, item in enumerate(line):
             print(item, end=" ")
@@ -23,8 +24,6 @@ def possible(board, pos, num):
 
     Returns:
     bool:Returning value
-
-
     """
     # pos is (y, x)
     # check row
@@ -103,17 +102,11 @@ def completed(board):
     return False
 
 
-def back_track(board):
-    solved_board, _ = solve(board, False)
-    return solved_board
-
-
 def solve(board):
     for i in list(range(0, 9)):
         for j in list(range(0,9)):
             if board[i][j] == 0:
                 for testNum in list(range(1, 10)):
-                    # board[i][j] = testNum
                     if possible(board, (i, j), testNum):
                         board[i][j] = testNum
                         board = solve(board)
