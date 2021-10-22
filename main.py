@@ -15,38 +15,38 @@ def import_board():
 
 
 def get_board():
-    #this is a test
+    # this is a test
     board = []
     while len(board) != 9:
         line = input("Enter line " + str(len(board) + 1) + ": ")
         line = line.split(" ")
         length = len(line)
         # check for valid line
-        newLine = []
+        new_line = []
 
         for j in len(line):
             number = int(line[j])
-            if number >= 0 and number <= 9: 
-                newLine.append(number)
-        if len(newLine) == 9:
-            board.append(newLine)
+            if 0 <= number <= 9:
+                new_line.append(number)
+        if len(new_line) == 9:
+            board.append(new_line)
         else:
             print("Invalid entry, please re-enter.")
     return board
 
 
 def get_input():
-    userInput = input("Choice: ")
+    user_input = input("Choice: ")
 
-    if userInput.upper() == 'Q':
+    if user_input.upper() == 'Q':
         return "Q"
     else:
         try:
-            userInput = int(userInput)
+            user_input = int(user_input)
         except:
             print("Invalid input!")
             get_input()
-    return userInput
+    return user_input
 
 
 test_board = [[0, 5, 0, 0, 0, 6, 0, 0, 0],
@@ -79,19 +79,19 @@ hard_board = [[0, 1, 8, 0, 0, 0, 0, 0, 2],
               [0, 0, 0, 0, 7, 9, 1, 0, 0],
               [4, 5, 0, 0, 2, 0, 0, 0, 0]]
 
-easy_board =  [[0, 3, 4, 6, 7, 8, 9, 0, 0],
-               [6, 7, 2, 1, 9, 5, 3, 4, 8],
-               [0, 9, 8, 3, 4, 2, 5, 6, 7],
-               [8, 5, 9, 7, 6, 1, 4, 2, 3],
-               [4, 2, 6, 8, 5, 3, 7, 9, 1],
-               [7, 1, 3, 9, 2, 4, 8, 5, 6],
-               [9, 6, 1, 5, 3, 7, 2, 8, 4],
-               [2, 8, 7, 4, 1, 9, 6, 3, 5],
-               [3, 4, 5, 2, 8, 6, 1, 7, 9]]
+easy_board = [[0, 3, 4, 6, 7, 8, 9, 0, 0],
+              [6, 7, 2, 1, 9, 5, 3, 4, 8],
+              [0, 9, 8, 3, 4, 2, 5, 6, 7],
+              [8, 5, 9, 7, 6, 1, 4, 2, 3],
+              [4, 2, 6, 8, 5, 3, 7, 9, 1],
+              [7, 1, 3, 9, 2, 4, 8, 5, 6],
+              [9, 6, 1, 5, 3, 7, 2, 8, 4],
+              [2, 8, 7, 4, 1, 9, 6, 3, 5],
+              [3, 4, 5, 2, 8, 6, 1, 7, 9]]
 
 user_board = []
 
-while(True):
+while True:
     print("\nMain Menu:")
     print("1: Input board")
     print("2: Use test board")
