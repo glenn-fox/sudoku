@@ -43,7 +43,7 @@ def get_input():
     else:
         try:
             user_input = int(user_input)
-        except:
+        except(IOError):
             print("Invalid input!")
             get_input()
     return user_input
